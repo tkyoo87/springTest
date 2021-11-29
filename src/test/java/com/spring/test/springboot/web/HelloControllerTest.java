@@ -1,4 +1,4 @@
-package com.spring.test.springboot;
+package com.spring.test.springboot.web;
 
 
 import org.junit.Test;
