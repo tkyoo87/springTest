@@ -26,11 +26,19 @@ repositories {
 }
 
 dependencies {
+    //gradle 7 이후로는 compile -> implementaion 으로 수정
+
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2database:h2')
+
     implementation('org.springframework.boot:spring-boot-starter-websocket:2.1.7.RELEASE')
     testImplementation('org.springframework.boot:spring-boot-starter-test:2.1.7.RELEASE')
     testRuntimeOnly('org.springframework.boot:spring-boot-starter-test:2.1.7.RELEASE')
-    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation("org.junit.vintage:junit-vintage-engine") {
+        exclude group: "org.hamcrest", module: "hamcrest-core"
+    }
+    compileOnly('org.projectlombok:lombok:1.18.22');
+    annotationProcessor('org.projectlombok:lombok:1.18.22');
 }
 
 test {
